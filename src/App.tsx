@@ -3,15 +3,16 @@ import "./App.scss";
 
 import { Navbar, Footer } from "./shared";
 import AppRouter from "./router";
+import { Container } from "reactstrap";
 
-function App() {
+const App = () => {
   return (
-    <>
+    <Container>
       <Navbar />
       <AppRouter />
       <Footer />
-    </>
+    </Container>
   );
-}
+};
 
 export default App;
