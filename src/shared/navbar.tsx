@@ -28,17 +28,12 @@ const Navbar = () => {
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to='/'>
+              <NavLink tag={Link} to='/products'>
                 All Products
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink tag={Link} to='/'>
-                Pricing
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink tag={Link} to='/'>
+              <NavLink tag={Link} to='/about'>
                 About
               </NavLink>
             </NavItem>
