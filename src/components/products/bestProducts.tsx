@@ -1,7 +1,35 @@
-import React from "react";
+import { connect } from "react-redux";
+import React, { useEffect } from "react";
+import { Product } from "../../store/model/product";
+import { fetchBestProducts } from "../../store/actions/product.action";
+import ProductCard from "./productCard";
 
-const BestProducts = () => {
-  return <div>Best Products</div>;
+const BestProducts = (props: {
+  bestProducts: Product[];
+  fetchBestProducts: () => {};
+}) => {
+  const { bestProducts, fetchBestProducts } = props;
+
+  useEffect(() => {
+    fetchBestProducts();
+  }, [fetchBestProducts]);
+
+  const iterateProducts = () => {
+    return bestProducts.map((product: Product) => (
+      <div className='col-md-3' key={product._id}>
+        <ProductCard product={product} />
+      </div>
+    ));
+  };
+  return <div className='row'>{iterateProducts()}</div>;
 };
 
-export default BestProducts;
+const mapStateToProps = (state: { products: { bestProducts: Product[] } }) => ({
+  bestProducts: state.products.bestProducts
+});
+
+const mapDispatchToProps = {
+  fetchBestProducts
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(BestProducts);
