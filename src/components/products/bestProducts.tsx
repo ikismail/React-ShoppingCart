@@ -15,7 +15,7 @@ const BestProducts = (props: {
   }, [fetchBestProducts]);
 
   const iterateProducts = () => {
-    return bestProducts.map((product: Product) => (
+    return bestProducts.slice(0, 4).map((product: Product) => (
       <div className='col-md-3' key={product._id}>
         <ProductCard product={product} />
       </div>

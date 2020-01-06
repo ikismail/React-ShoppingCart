@@ -1,14 +1,14 @@
 import React from "react";
 import { Jumbotron, SectionHeader } from "../shared/";
-import { BestProducts } from "../components/products";
+import { BestProducts, TopProducts } from "../components/products";
 
 const Dashboard = () => {
   return (
     <>
       <Jumbotron />
-      <SectionHeader title='Sample Header' route='/' />
-      <BestProducts />
-      <SectionHeader title='Sample Header' route='/' />
+      <SectionHeader title='Our Top Products' route='/products' />
+      <TopProducts />
+      <SectionHeader title='Our Best Products' route='/products' />
       <BestProducts />
     </>
   );
