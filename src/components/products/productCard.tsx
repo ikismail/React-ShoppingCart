@@ -15,7 +15,7 @@ const styles = {
     fontSize: "95%"
   },
   card: {
-    height: "490px"
+    height: "500px"
   },
   cardText: {
     height: "70px",
@@ -23,48 +23,80 @@ const styles = {
   }
 };
 
-const ProductCard = ({ product }: ProductCardProps) => {
-  const { footerIcons, card, cardText, cardImage } = styles;
+const ProductCardHeader = ({
+  productName,
+  productDescription
+}: {
+  productName: string;
+  productDescription: string;
+}) => {
+  const { cardText } = styles;
   return (
-    <div className='cardTemplate'>
-      <div className='mb-4 shadow-sm text-center' style={card}>
-        <img
-          className='card-img-top mt-2'
-          alt={"Card cap"}
-          src={product.productImage}
-          style={cardImage}
-        />
-        <div className='card-body'>
-          <h6 className='card-text' style={cardText}>
-            {product.productName}.
-          </h6>
-          <p className='card-text' style={cardText}>
-            {product.productDescription}.
-          </p>
-          <div className='d-flex justify-content-between align-items-center'>
-            <div className='btn-group'>
-              <button
-                type='button'
-                className='btn btn-sm btn-outline-secondary'>
-                View
-              </button>
+    <>
+      <h6 className='card-text' style={cardText}>
+        {productName}.
+      </h6>
+      <p className='card-text' style={cardText}>
+        {productDescription}.
+      </p>
+    </>
+  );
+};
 
-              <button
-                type='button'
-                className='btn btn-sm btn-outline-secondary'>
-                Edit
-              </button>
-            </div>
-            <small className='text-muted' style={footerIcons}>
-              <button className='p-2'>
-                <i className='fa fa-heart'></i>
-              </button>
-              <button className='p-2'>
-                <i className='fa fa-shopping-cart'></i>
-              </button>
-            </small>
-          </div>
-        </div>
+const ProductCardImage = ({ productImage }: { productImage: string }) => {
+  const { cardImage } = styles;
+  return (
+    <img
+      className='card-img-top mt-2'
+      alt={"Card cap"}
+      src={productImage}
+      style={cardImage}
+    />
+  );
+};
+
+const ProductCardFooter = () => {
+  const { footerIcons } = styles;
+  const leftSideButtons = () => {
+    return ["View", "Edit"].map(btn => (
+      <button
+        type='button'
+        className='btn btn-sm btn-outline-secondary'
+        key={btn}>
+        {btn}
+      </button>
+    ));
+  };
+
+  const rightSideButtons = () => {
+    return ["fa-heart", "fa-shopping-cart"].map(icon => (
+      <button className='p-2' key={icon}>
+        <i className={`fa ${icon}`}></i>
+      </button>
+    ));
+  };
+
+  return (
+    <div className='d-flex justify-content-between align-items-center'>
+      <div className='btn-group'>{leftSideButtons()}</div>
+      <small className='text-muted' style={footerIcons}>
+        {rightSideButtons()}
+      </small>
+    </div>
+  );
+};
+
+const ProductCard = ({ product }: ProductCardProps) => {
+  const { card } = styles;
+  return (
+    <div className='mb-4 shadow-sm text-center border' style={card}>
+      <ProductCardImage productImage={product.productImage} />
+      <div className='card-body'>
+        <ProductCardHeader
+          productName={product.productName}
+          productDescription={product.productDescription}
+        />
+        <ProductCardFooter />
       </div>
     </div>
   );
