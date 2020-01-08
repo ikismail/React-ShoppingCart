@@ -1,0 +1,13 @@
+@import "../themes";
+
+.primary-btn {
+  color: $primary;
+  background-color: $white;
+  border-color: $primary;
+}
+
+.primary-btn:hover {
+  background-color: $primary;
+  color: $white;
+  border-color: $white;
+}

@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect } from "react";
 import ProductCard from "./productCard";
 import { ContentLoader } from "../../shared";
 import { Product } from "../../store/model/product";

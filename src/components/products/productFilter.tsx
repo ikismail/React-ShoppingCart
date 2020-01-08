@@ -1,4 +1,5 @@
 import React from "react";
+import "../../config/styles/product-filter.scss";
 
 function ProductFilter() {
   return (
@@ -8,9 +9,7 @@ function ProductFilter() {
           <span className='text-muted'>Filters:</span>
         </h4>
         <div className='form-group createProduct'>
-          <button className='btn buttonGreen-outline'>
-            Create New Product
-          </button>
+          <button className='btn primary-btn w-100'>Create New Product</button>
         </div>
         <div className='form-group'>
           <label>By Category:</label>

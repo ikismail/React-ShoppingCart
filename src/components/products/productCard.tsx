@@ -1,5 +1,7 @@
 import React from "react";
 import { Product } from "../../store/model/product";
+import "../../config/styles/product-filter.scss";
+import Icon from "../../shared/icon";
 
 type ProductCardProps = {
   product: Product;
@@ -59,10 +61,7 @@ const ProductCardFooter = () => {
   const { footerIcons } = styles;
   const leftSideButtons = () => {
     return ["View", "Edit"].map(btn => (
-      <button
-        type='button'
-        className='btn btn-sm btn-outline-secondary'
-        key={btn}>
+      <button type='button' className='btn btn-sm primary-btn' key={btn}>
         {btn}
       </button>
     ));
@@ -70,9 +69,10 @@ const ProductCardFooter = () => {
 
   const rightSideButtons = () => {
     return ["fa-heart", "fa-shopping-cart"].map(icon => (
-      <button className='p-2' key={icon}>
-        <i className={`fa ${icon}`}></i>
-      </button>
+      // <button className='p-2' key={icon}>
+      //   <i className={`fa ${icon}`}></i>
+      // </button>
+      <Icon />
     ));
   };
 
