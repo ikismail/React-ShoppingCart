@@ -1,5 +1,6 @@
 import BestProducts from "./bestProducts";
-import ProductsList from "./productslist";
+import Productslist from "./productslist";
 import TopProducts from "./topProducts";
+import ProductFilter from "./productFilter";
 
-export { BestProducts, ProductsList, TopProducts };
+export { BestProducts, Productslist, TopProducts, ProductFilter };

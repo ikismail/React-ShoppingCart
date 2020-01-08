@@ -7,7 +7,7 @@ const Jumbotron = () => {
       <RSJumbotron fluid>
         <Container className='text-center'>
           <h3 className='display-5'>Sample Heading</h3>
-          <p className='lead'>Sample Description</p>
+          <p className='lead'>A ShoppingCart (Ecommerce) Application using ReactJs.</p>
         </Container>
       </RSJumbotron>
     </div>
