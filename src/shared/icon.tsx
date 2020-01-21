@@ -1,16 +1,11 @@
 import React from "react";
+import "../config/themes.scss";
+import "./icon.scss";
 
-const styles = {
-  spanTag: {
-    cursor: "pointer"
-  }
-};
-
-function Icon() {
-  const { spanTag } = styles;
+function Icon({ type }: { type: string }) {
   return (
-    <span className='p-2' style={spanTag}>
-      <i className='fa fa-home' />
+    <span className='p-2 primary icon'>
+      <i className={`fa ${type}`} />
     </span>
   );
 }

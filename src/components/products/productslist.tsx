@@ -1,10 +1,10 @@
-import { connect } from "react-redux";
-import React, { useEffect } from "react";
-import ProductCard from "./productCard";
-import { ContentLoader } from "../../shared";
-import { Product } from "../../store/model/product";
-import { fetchAllProducts } from "../../store/actions/product.action";
 import "rc-pagination/assets/index.css";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { ContentLoader } from "../../shared";
+import { fetchAllProducts } from "../../store/actions/product.action";
+import { Product } from "../../store/model/product";
+import ProductCard from "./productCard";
 
 const Productslist = (props: {
   products: Product[];
@@ -13,7 +13,7 @@ const Productslist = (props: {
   const { products, fetchAllProducts } = props;
   useEffect(() => {
     fetchAllProducts();
-  }, [fetchAllProducts]);
+  }, []);
 
   const iterateProducts = () => {
     if (products.length === 0) {
@@ -34,8 +34,14 @@ const Productslist = (props: {
   );
 };
 
-const mapStateToProps = (state: { products: { products: Product[] } }) => ({
-  products: state.products.products
+const mapStateToProps = (state: {
+  products: {
+    products: Product[];
+    filter: { seller: string; category: string };
+  };
+}) => ({
+  products: state.products.products,
+  filter: state.products.filter
 });
 
 const mapDispatchToProps = {

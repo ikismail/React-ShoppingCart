@@ -72,7 +72,7 @@ const ProductCardFooter = () => {
       // <button className='p-2' key={icon}>
       //   <i className={`fa ${icon}`}></i>
       // </button>
-      <Icon />
+      <Icon key={icon} type={icon} />
     ));
   };
 
