@@ -1,7 +1,6 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-
-import { Auth, Dashboard, Products, About } from "./screens";
+import { Route, Switch } from "react-router-dom";
+import { About, Auth, Dashboard, Products } from "./screens";
 
 const AppRouter = () => {
   return (
